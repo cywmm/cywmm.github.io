@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="123456789101112//	public static void SetEditTextHintFontSize(Context context,EditText editText,int size,int contentID)&amp;#123;		String content=context.getString(contentID);		// 新建一个可以添加属性的文本对象		Spannabl">
+<meta name="description" content="1.Android中调用手机邮箱 发送邮件 12345678910Intent intent = new Intent(android.content.Intent.ACTION_SEND);intent.putExtra(android.content.Intent.EXTRA_EMAIL,// 收件人new String[] &amp;#123; &amp;quot;840179939@qq.com&amp;quot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设置EditText的hint字体大小">
-<meta property="og:url" content="http://yoursite.com/2014/11/10/设置EditText的hint字体大小/index.html">
+<meta property="og:title" content="Android中调用手机邮箱 手机短信 手机电话">
+<meta property="og:url" content="http://yoursite.com/2016/11/08/Android中调用手机邮箱-手机短信-手机电话/index.html">
 <meta property="og:site_name" content="咕叽咕叽">
-<meta property="og:description" content="123456789101112//	public static void SetEditTextHintFontSize(Context context,EditText editText,int size,int contentID)&amp;#123;		String content=context.getString(contentID);		// 新建一个可以添加属性的文本对象		Spannabl">
+<meta property="og:description" content="1.Android中调用手机邮箱 发送邮件 12345678910Intent intent = new Intent(android.content.Intent.ACTION_SEND);intent.putExtra(android.content.Intent.EXTRA_EMAIL,// 收件人new String[] &amp;#123; &amp;quot;840179939@qq.com&amp;quot">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-03T08:54:24.700Z">
+<meta property="og:updated_time" content="2018-01-03T09:02:51.852Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设置EditText的hint字体大小">
-<meta name="twitter:description" content="123456789101112//	public static void SetEditTextHintFontSize(Context context,EditText editText,int size,int contentID)&amp;#123;		String content=context.getString(contentID);		// 新建一个可以添加属性的文本对象		Spannabl">
+<meta name="twitter:title" content="Android中调用手机邮箱 手机短信 手机电话">
+<meta name="twitter:description" content="1.Android中调用手机邮箱 发送邮件 12345678910Intent intent = new Intent(android.content.Intent.ACTION_SEND);intent.putExtra(android.content.Intent.EXTRA_EMAIL,// 收件人new String[] &amp;#123; &amp;quot;840179939@qq.com&amp;quot">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2014/11/10/设置EditText的hint字体大小/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/08/Android中调用手机邮箱-手机短信-手机电话/"/>
 
 
 
 
 
-  <title>设置EditText的hint字体大小 | 咕叽咕叽</title>
+  <title>Android中调用手机邮箱 手机短信 手机电话 | 咕叽咕叽</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/11/10/设置EditText的hint字体大小/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/08/Android中调用手机邮箱-手机短信-手机电话/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangming">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">设置EditText的hint字体大小</h1>
+          <h1 class="post-title" itemprop="name headline">Android中调用手机邮箱 手机短信 手机电话</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-11-10T10:02:00+08:00">
-                2014-11-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-08T13:23:20+08:00">
+                2016-11-08
               </time>
             
 
@@ -299,7 +299,19 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">	public static void SetEditTextHintFontSize(Context context,EditText editText,int size,int contentID)&#123;</span><br><span class="line">		String content=context.getString(contentID);</span><br><span class="line">		// 新建一个可以添加属性的文本对象</span><br><span class="line">		SpannableString ss = new SpannableString(content);</span><br><span class="line">		// 新建一个属性对象,设置文字的大小</span><br><span class="line">		AbsoluteSizeSpan ass = new AbsoluteSizeSpan(size, true);</span><br><span class="line">		// 附加属性到文本</span><br><span class="line">		ss.setSpan(ass, 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">		// 设置hint</span><br><span class="line">		editText.setHint(new SpannedString(ss)); // 一定要进行转换,否则属性会消失</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+        <p><strong>1.Android中调用手机邮箱 发送邮件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = new Intent(android.content.Intent.ACTION_SEND);</span><br><span class="line">intent.putExtra(android.content.Intent.EXTRA_EMAIL,</span><br><span class="line">// 收件人</span><br><span class="line">new String[] &#123; &quot;840179939@qq.com&quot; &#125;); </span><br><span class="line">// 主题</span><br><span class="line">intent.putExtra(android.content.Intent.EXTRA_SUBJECT, &quot;意见反馈&quot;);</span><br><span class="line">// 正文</span><br><span class="line">intent.putExtra(android.content.Intent.EXTRA_TEXT, emailcontent); </span><br><span class="line">intent.setType(&quot;plain/text&quot;);</span><br><span class="line">startActivityForResult(intent, SENDBACK);</span><br></pre></td></tr></table></figure>
+<p><strong>2.Android中调用手机短信 发送短信</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Uri uri = Uri.parse(&quot;smsto:&quot; + data.getFriendsPhone());</span><br><span class="line">Intent sendIntent = new Intent(Intent.ACTION_VIEW, uri);</span><br><span class="line">sendIntent.putExtra(&quot;sms_body&quot;, &quot;发送短信内容&quot;);</span><br><span class="line">startActivity(sendIntent);</span><br></pre></td></tr></table></figure>
+<p><strong>3.Android中调用手机电话</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = new Intent();  </span><br><span class="line">intent.setAction(Intent.ACTION_CALL);  </span><br><span class="line">intent.setData(Uri.parse(&quot;tel:&quot;+&quot;电话号码&quot;));  </span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<p>当然，以上调用 <strong>发送短信</strong> 和 <strong>打电话</strong> 都是要获取权限的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--发送消息--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.SEND_SMS&quot;/&gt;</span><br><span class="line">&lt;!--拨打电话--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>扩展</strong><br>印象中有公司的app（好像是滴滴…）发送验证码的时候可以直接获取短信的内容，放到输入框，当然需要更多的权限。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--  阅读消息--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.READ_SMS&quot;/&gt;</span><br><span class="line">&lt;!--  写入消息--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.WRITE_SMS&quot; /&gt;</span><br><span class="line">&lt;!-- 接收消息 --&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.RECEIVE_SMS&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>后面会我们研究一下Android6.0以上的权限管理，欢迎互相交流学习。</p>
+<p>以上内容是之前整理的笔记，现整理放在blog上，方便以后管理。</p>
+
       
     </div>
     
@@ -323,14 +335,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/09/06/多样的shape-layer-list/" rel="next" title="多样的shape(layer-list)">
+                <i class="fa fa-chevron-left"></i> 多样的shape(layer-list)
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/09/Android中使用shape/" rel="prev" title="Android中使用shape">
-                Android中使用shape <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/08/常用git命令/" rel="prev" title="常用git命令">
+                常用git命令 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
