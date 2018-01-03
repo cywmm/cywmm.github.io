@@ -300,11 +300,18 @@
       
         
           
-            <ul>
-<li>2018年第一篇博客！</li>
-</ul>
+          
+2018年第一篇博客！
+
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/02/ming/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -422,29 +429,23 @@
       
         
           
-            <p>在Android中WebView加载网页时，我们可能需要进行一定的交互。<br>例如:</p>
-<ol>
-<li>点击网页的一个按钮触发Android系统的Toast、弹框等</li>
-<li>点击Android的button触发网页的响应<br>如果想实现以上的需求，就会想到java和js的一些互调的知识。</li>
-</ol>
-<hr>
-<p> 下面举例说明</p>
-<ol>
-<li>准备网页  index.html放在项目main下面的assets文件夹下，内容如下：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=gb2312&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://code.getmdl.io/1.3.0/material.indigo-pink.min.css&quot;&gt;</span><br><span class="line">    &lt;script defer src=&quot;https://code.getmdl.io/1.3.0/material.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"></span><br><span class="line">function javaGetJs()&#123;</span><br><span class="line">	 document.getElementById(&quot;content&quot;).innerHTML =</span><br><span class="line">         &quot;&lt;br\&gt;JAVA调用了JS的无参函数&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function javaGetJsWith(arg)&#123;</span><br><span class="line">	 document.getElementById(&quot;content&quot;).innerHTML =</span><br><span class="line">         (&quot;&lt;br\&gt;&quot;+arg);</span><br><span class="line">&#125;</span><br><span class="line">    &lt;/script&gt;&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">HTML 内容显示 &lt;br/&gt;</span><br><span class="line">&lt;h1&gt;</span><br><span class="line">    &lt;div id=&quot;content&quot;&gt;内容显示&lt;/div&gt;</span><br><span class="line">&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;button onclick=&quot;window.android.startFunction()&quot;</span><br><span class="line">        class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent&quot;&gt;</span><br><span class="line">    点击调用java代码</span><br><span class="line">&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;button onclick=&quot;window.android.startFunction(&apos;这是来自html的内容&apos;)&quot;</span><br><span class="line">        class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent&quot;&gt;</span><br><span class="line">    点击调用java代码,传递参数</span><br><span class="line">&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>两个function负责接收java的调用，一个有参数，一个无参数<br>两个button负责调用java的方法，一个有参数，一个无参数</p>
-<ol>
-<li>布局activity_main.xml</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</span><br><span class="line">    android:id=&quot;@+id/activity_main&quot;</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button2&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:text=&quot;js无参数&quot;</span><br><span class="line">        tools:layout_editor_absoluteX=&quot;234dp&quot;</span><br><span class="line">        tools:layout_editor_absoluteY=&quot;0dp&quot;</span><br><span class="line">        android:layout_alignParentTop=&quot;true&quot;</span><br><span class="line">        android:layout_alignParentEnd=&quot;true&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Button</span><br><span class="line">        android:id=&quot;@+id/button&quot;</span><br><span class="line">        android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:text=&quot;js有参数&quot;</span><br><span class="line">        tools:layout_editor_absoluteX=&quot;57dp&quot;</span><br><span class="line">        tools:layout_editor_absoluteY=&quot;0dp&quot;</span><br><span class="line">        android:layout_alignParentTop=&quot;true&quot;</span><br><span class="line">        android:layout_alignParentStart=&quot;true&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;WebView</span><br><span class="line">        android:id=&quot;@+id/webView&quot;</span><br><span class="line">        android:layout_width=&quot;385dp&quot;</span><br><span class="line">        android:layout_height=&quot;364dp&quot;</span><br><span class="line">        tools:layout_editor_absoluteX=&quot;0dp&quot;</span><br><span class="line">        tools:layout_editor_absoluteY=&quot;139dp&quot;</span><br><span class="line">        android:layout_alignParentBottom=&quot;true&quot;</span><br><span class="line">        android:layout_alignParentStart=&quot;true&quot;</span><br><span class="line">        android:layout_marginBottom=&quot;20dp&quot;</span><br><span class="line">        android:layout_below=&quot;@+id/button2&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>MainActivity.java</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">private WebView webView;</span><br><span class="line">   @Override</span><br><span class="line">   protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">       super.onCreate(savedInstanceState);</span><br><span class="line">       setContentView(R.layout.activity_main);</span><br><span class="line">       webView = (WebView)findViewById(R.id.webView);</span><br><span class="line">       initWebView();</span><br><span class="line"></span><br><span class="line">       //无参数</span><br><span class="line">       findViewById(R.id.button).setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           public void onClick(View v) &#123;</span><br><span class="line">               webView.loadUrl(&quot;javascript:javaGetJsWith(&quot; + &quot;&apos;这个是java传递的内容&apos;&quot; + &quot;)&quot;);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">       //有参数</span><br><span class="line">       findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           public void onClick(View v) &#123;</span><br><span class="line">               webView.loadUrl(&quot;javascript:javaGetJs()&quot;);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   private void initWebView() &#123;</span><br><span class="line">       webView.getSettings().setJavaScriptEnabled(true);</span><br><span class="line">       webView.loadUrl(&quot;file:///android_asset/index.html&quot;);</span><br><span class="line">       webView.addJavascriptInterface(MainActivity.this,&quot;android&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   //接收js的调用，无参数</span><br><span class="line">   @JavascriptInterface</span><br><span class="line">   public void startFunction()&#123;</span><br><span class="line"></span><br><span class="line">       runOnUiThread(new Runnable() &#123;</span><br><span class="line">           @Override</span><br><span class="line">           public void run() &#123;</span><br><span class="line">               Toast.makeText(MainActivity.this,&quot;html调用了java的方法&quot;,3000).show();</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;</span><br><span class="line">   //接收js的调用，有参数</span><br><span class="line">   @JavascriptInterface</span><br><span class="line">   public void startFunction(final String text)&#123;</span><br><span class="line">       runOnUiThread(new Runnable() &#123;</span><br><span class="line"></span><br><span class="line">           @Override</span><br><span class="line">           public void run() &#123;</span><br><span class="line">               new AlertDialog.Builder(MainActivity.this).setMessage(text).show();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>其中注解 @JavascriptInterface是来接收js调用java的方法，一个标识<br><a href="https://github.com/cywmm/androidDemo/tree/develop/androidJsDemo" target="_blank" rel="noopener">源码地址</a></p>
+          在Android中WebView加载网页时，我们可能需要进行一定的交互。例如:
 
-          
+点击网页的一个按钮触发Android系统的Toast、弹框等
+点击Android的button触发网页的响应如果想实现以上的需求，就会想到java和js的一些互调的知识。
+
+
+ 下面举例说明
+
+准备网页  index.
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/10/Android中java和js交互/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -562,12 +563,17 @@
       
         
           
-            <p>1.进入android控制台   输入adb shell  (adb配置好前提)</p>
-<p>2.命令getprop 会得到一些系统参数</p>
-<p>3.修改DNS输入命令，假如DNS是：192.168.1.1<br>（查看你的DNS：cmd–&gt;ipconfig /all）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setprop net.eth0.dns1  192.168.1.1</span><br></pre></td></tr></table></figure></p>
-<p>4.重启模拟器</p>
-
-          
+          1.进入android控制台   输入adb shell  (adb配置好前提)
+2.命令getprop 会得到一些系统参数
+3.修改DNS输入命令，假如DNS是：192.168.1.1（查看你的DNS：cmd–&gt;ipconfig /all）1setprop net.eth0.dns1  19
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/12/24/Android模拟器不能上网问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -685,38 +691,17 @@
       
         
           
-            <p>上一篇学习了怎么在Windows下搭建react native，今天来看一下怎么在WebStorm写界面。</p>
-<p>首先，先说一下怎么配置WebStorm（<a href="http://www.jetbrains.com/webstorm/" target="_blank" rel="noopener">下载</a>），如果你平时熟悉Android Studio,那这个你应该也不陌生，因为他们是同一家公司的出品，下载之后安装，自己去搜一下怎么去注册。</p>
-<p>好，现在说配置，打开我们生成的React Native项目，然后file–setting</p>
-<p><img src="http://img.blog.csdn.net/20161118114520621" alt="这里写图片描述"></p>
-<p>选择React JSX<br><img src="http://img.blog.csdn.net/20161118115236271" alt="这里写图片描述"></p>
-<p>下载react和react native<br><img src="http://img.blog.csdn.net/20161118114639809" alt="这里写图片描述"></p>
-<p>然后点击OK 完成</p>
-<p>接着配置npm</p>
-<p><img src="http://img.blog.csdn.net/20161118115628558" alt="这里写图片描述"></p>
-<p>是不是和Android Studio很像，看图</p>
-<p><img src="http://img.blog.csdn.net/20161118115759268" alt="这里写图片描述"></p>
-<p>好了，基本上完成了配置<br>我们启动看看</p>
-<p><img src="http://img.blog.csdn.net/20161118120020190" alt="这里写图片描述"></p>
-<hr>
-<p>正式开始写ui</p>
-<p>看一个有代表性的ListView，<a href="https://facebook.github.io/react-native/docs/using-a-listview.html#content" target="_blank" rel="noopener">官网文档</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">import &#123; AppRegistry, ListView, Text, View &#125; from &apos;react-native&apos;;</span><br><span class="line"></span><br><span class="line">class ListViewBasics extends Component &#123;</span><br><span class="line">  // Initialize the hardcoded data</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    const ds = new ListView.DataSource(&#123;rowHasChanged: (r1, r2) =&gt; r1 !== r2&#125;);</span><br><span class="line">    this.state = &#123;</span><br><span class="line">      dataSource: ds.cloneWithRows([</span><br><span class="line">        &apos;John&apos;, &apos;Joel&apos;, &apos;James&apos;, &apos;Jimmy&apos;, &apos;Jackson&apos;, &apos;Jillian&apos;, &apos;Julie&apos;, &apos;Devin&apos;,&apos;John&apos;, &apos;Joel&apos;, &apos;James&apos;, &apos;Jimmy&apos;, &apos;Jackson&apos;, &apos;Jillian&apos;, &apos;Julie&apos;, &apos;Devin&apos;,&apos;John&apos;, &apos;Joel&apos;, &apos;James&apos;, &apos;Jimmy&apos;, &apos;Jackson&apos;, &apos;Jillian&apos;, &apos;Julie&apos;, &apos;Devin&apos;, &apos;James&apos;, &apos;Jimmy&apos;, &apos;Jackson&apos;, &apos;Jillian&apos;, &apos;Julie&apos;, &apos;Devin&apos;,, &apos;James&apos;, &apos;Jimmy&apos;, &apos;Jackson&apos;, &apos;Jillian&apos;, &apos;Julie&apos;, &apos;Devin&apos;</span><br><span class="line">      ])</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;View style=&#123;&#123;flex: 1, paddingTop: 22&#125;&#125;&gt;</span><br><span class="line">        &lt;ListView</span><br><span class="line">          dataSource=&#123;this.state.dataSource&#125;</span><br><span class="line">          renderRow=&#123;(rowData) =&gt; &lt;Text&gt;&#123;rowData&#125;&lt;/Text&gt;&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;/View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>多放了几组数据，看ListView的效果<br>简单说下代码，首先import 我们需要的库和控件，这一点和Android道理一样，定义数据，然后ListView展示，然后启动app摇一摇 reload看下效果：</p>
-<p><img src="http://img.blog.csdn.net/20161118130428069" alt="这里写图片描述"></p>
-<p>太靠边了，我们调一下，让TextView居中,在TextView的style里加<code>textAlign:&#39;center&#39;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">   return (</span><br><span class="line">    &lt;View style=&#123;&#123;flex: 1, paddingTop: 22&#125;&#125;&gt;</span><br><span class="line">     &lt;ListView</span><br><span class="line">       dataSource=&#123;this.state.dataSource&#125;</span><br><span class="line">       renderRow=&#123;(rowData) =&gt; </span><br><span class="line">       &lt;Text style=&#123;&#123;textAlign: &apos;center&apos;&#125;&#125;&gt;&#123;rowData&lt;/Text&gt;&#125;/&gt;</span><br><span class="line">     &lt;/View&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后效果图：<br><img src="http://img.blog.csdn.net/20161118131839146" alt="这里写图片描述"></p>
-<p>如果我们想把TextView换成图片呢？怎么办？<br>再去看下官网<a href="https://facebook.github.io/react-native/docs/props.html#content" target="_blank" rel="noopener">https://facebook.github.io/react-native/docs/props.html#content</a><br>然后我们把上面的TextView换成Image（是的，不是ImageView）</p>
-<p>一共分为两步：<br>1.替换数据，直接看代码（强迫症，为甚么代码贴过来就乱了）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">constructor(props) &#123;</span><br><span class="line">       super(props);</span><br><span class="line">       const ds = new ListView.DataSource(&#123;rowHasChanged: (r1, r2) =&gt; r1 !== r2&#125;);</span><br><span class="line">       let pic = &#123;</span><br><span class="line">           uri: &apos;https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg&apos;</span><br><span class="line">       &#125;;</span><br><span class="line">       this.state = &#123;</span><br><span class="line">           dataSource: ds.cloneWithRows([</span><br><span class="line">               pic, pic, pic, pic, pic, pic, pic, pic</span><br><span class="line">           ])</span><br><span class="line">       &#125;;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>2.把TextView换成Image</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">        var Dimensions = require(&apos;Dimensions&apos;);</span><br><span class="line">        var &#123; width, height &#125; = Dimensions.get(&apos;window&apos;);</span><br><span class="line">        return (</span><br><span class="line">            &lt;View style=&#123;&#123;flex: 1, paddingTop: 5&#125;&#125;&gt;</span><br><span class="line">                &lt;ListView</span><br><span class="line">                    dataSource=&#123;this.state.dataSource&#125;</span><br><span class="line">                    renderRow=&#123;(rowData) =&gt;</span><br><span class="line">                        &lt;Image source=&#123;rowData&#125; style=&#123;&#123;marginTop:5,width: width, height: 110&#125;&#125;/&gt;&#125;</span><br><span class="line">                /&gt;</span><br><span class="line">            &lt;/View&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>这里给Image设置了宽度是屏幕的宽度</p>
-<p>运行看效果：</p>
-<p><img src="http://img.blog.csdn.net/20161118133222214" alt="这里写图片描述"></p>
-<p>这里是<a href="https://github.com/cywmm/AwesomeProject" target="_blank" rel="noopener">源码地址</a>，  欢迎交流学习~</p>
-
-          
+          上一篇学习了怎么在Windows下搭建react native，今天来看一下怎么在WebStorm写界面。
+首先，先说一下怎么配置WebStorm（下载），如果你平时熟悉Android Studio,那这个你应该也不陌生，因为他们是同一家公司的出品，下载之后安装，自己去搜一下怎么去注册。
+好，现在说
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/18/React-Native-界面入门-for-WebStorm/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -834,38 +819,16 @@
       
         
           
-            <p>环境：<br>Windows10 x64位<br><a href="https://facebook.github.io/react-native/docs/getting-started.html#content" target="_blank" rel="noopener">React Native 官网</a><br>以下操作可能需要翻墙，所以自己去找梯子~~</p>
-<p>看图：<br><img src="http://img.blog.csdn.net/20161117115450051" alt="这里写图片描述"><br>要我们获取Node.js和Python2，在Chocolatey命令行下安装，所以先配置好Chocolatey，到官网看下，下图<br><img src="http://img.blog.csdn.net/20161117115830123" alt="这里写图片描述"><br>又是命令行==<br>安装步骤来：<br>步骤1：<br><img src="http://img.blog.csdn.net/20161117120130530" alt="这里写图片描述"><br>右键以管理员身份运行，一定要是管理员，不然后面会疼痛<br>步骤2：<br>打开后把这些复制进去，回车，耐心等<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://img.blog.csdn.net/20161117120405313" alt="这里写图片描述"><br>这一步好了之后<br>步骤3：<br>来看第二条命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iex ((New-Object System.Net.WebClient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))</span><br></pre></td></tr></table></figure>
-<p>这个不是在cmd中了</p>
-<p>按照刚才我们打开cmd的步骤打开PowerShell<br><img src="http://img.blog.csdn.net/20161117120838080" alt="这里写图片描述"></p>
-<p>然后输入上面的命令<br>等了一会你可能会发现报错，又蛋疼了，好吧  看官网的提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ensure Get-ExecutionPolicy is at least RemoteSigned</span><br></pre></td></tr></table></figure>
-<p>所以我们还要配置一下PowerShell，</p>
-<p>然后根据提示来到这<br><a href="https://technet.microsoft.com/zh-CN/library/hh847748.aspx" target="_blank" rel="noopener">https://technet.microsoft.com/zh-CN/library/hh847748.aspx</a><br>重点是这里<br><img src="http://img.blog.csdn.net/20161117121216214" alt="这里写图片描述"></p>
-<p>好，在PowerShell输入这一句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned</span><br></pre></td></tr></table></figure></p>
-<p>提示选Y<br>ok，然后再输入刚刚我们输入的那条命令，就没问题了。不要关闭PowerShell，步骤4还有用</p>
-<p>步骤4：<br>还有一条命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex</span><br></pre></td></tr></table></figure></p>
-<p>等一会儿，成功之后，再回到React Native页面==</p>
-<p>好了正式开始配置</p>
-<p>同样的方法打开cmd<br>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install nodejs.install</span><br></pre></td></tr></table></figure>
-<p>输入Y，再回车，漫长的等待！！<br>好了之后，还有==||，安装python2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install python2</span><br></pre></td></tr></table></figure>
-<p>然后下一步：<br>再打开cmd</p>
-<p>输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g react-native-cli</span><br></pre></td></tr></table></figure>
-<p>到这里 基本上没啥问题了</p>
-<p>我们开始新建一个 React Native项目试一试：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">react-native init AwesomeProject</span><br><span class="line">cd AwesomeProject</span><br><span class="line">react-native run-android</span><br></pre></td></tr></table></figure>
-<p>这里回报这个错误<br><img src="http://img.blog.csdn.net/20161117155810142" alt="这里写图片描述"></p>
-<p>好吧  这怎么办啊，其实我也不知道，我们去github issues看一下<br><a href="https://github.com/mochajs/mocha/issues/2577" target="_blank" rel="noopener">https://github.com/mochajs/mocha/issues/2577</a> 太多了，也没找到好办法，不管了，先关注着这个问题，以后再看一下。</p>
-<p>那怎么办呢？</p>
-<p>直接用android studio打开项目里的android项目，运行到手机<br><img src="http://img.blog.csdn.net/20161117164735738" alt="这里写图片描述"><br>你会发现是这样的，红的，当然是有问题了<br>那么我们现在摇一摇手机，会弹出一个框，如图：<br><img src="http://img.blog.csdn.net/20161117164942529" alt="这里写图片描述"><br>选择最后一个进入<br><img src="http://img.blog.csdn.net/20161117165243859" alt="这里写图片描述"><br>然后选择 Debug server host &amp; port for device 配置你的ip：端口号，<br>端口一般是8081<br><img src="http://img.blog.csdn.net/20161117165505516" alt="这里写图片描述"><br>然后进入项目F:\RN\AwesomeProject（这里我放在F盘）<br>运行：react-native start<br>等一会，配置好之后，然后摇一摇Reload就ok了<br>成功的状态：<br><img src="http://img.blog.csdn.net/20161117165720563" alt="这里写图片描述"></p>
-<p>嗯 没了。</p>
-
-          
+          环境：Windows10 x64位React Native 官网以下操作可能需要翻墙，所以自己去找梯子~~
+看图：要我们获取Node.js和Python2，在Chocolatey命令行下安装，所以先配置好Chocolatey，到官网看下，下图又是命令行==安装步骤来：步骤1：右键以管理员身份运行，一
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/17/React-Native-Windows-10-搭建步骤/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -983,33 +946,16 @@
       
         
           
-            <p>其实，刚开始用的版本控制器是SVN，之后不知不觉投奔的git，git给我的感觉是很酷（别打了，我不装逼了(<em>^__^</em>) ）。</p>
-<p>好的，说一下git，现在除了公司的项目用git管理以为，平时自己写的项目也用，比如<a href="https://github.com/cywmm" target="_blank" rel="noopener">GitHub</a>、开源中国的<a href="http://git.oschina.net/cywm" target="_blank" rel="noopener">码云</a>（不是马云），不过说一下， GitHub私有项目是收费，平时开源的项目可以放在上面，而码云公有私有都可以，随便放，是不是非常的方便。好了，说正事。</p>
-<p><strong>安装git</strong> </p>
-<p><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载</a>，一直下一步~</p>
-<p><strong>配置</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;  </span><br><span class="line">git config --global user.email &quot;your email&quot;</span><br></pre></td></tr></table></figure></p>
-<p><strong>常用的git命令：</strong><br>1、克隆一个新项目（栗子：<a href="https://github.com/Tencent/tinker" target="_blank" rel="noopener">腾讯最近开源的一个热修复项目</a>）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Git clone https://github.com/Tencent/tinker.git</span><br></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20161108140317317" alt="2步"></p>
-<p>2、查看分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch //或者 git branch -a</span><br></pre></td></tr></table></figure>
-<p>区别是git branch是查看本地分支，加上-a查看所以分支（本地+远程）</p>
-<p>来张图<br><img src="http://img.blog.csdn.net/20161108142118518" alt="这里写图片描述"></p>
-<p>3、切换分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout develop   （develop  为你要切换到的分支）</span><br></pre></td></tr></table></figure>
-<p>看下例子：<br><img src="http://img.blog.csdn.net/20161108142543874" alt="这里写图片描述"></p>
-<p>error是什么鬼==<br>Please commit your changes or stash them before you switch branches.<br>别急，这个是提醒你想要切换分支，必须把当前分支的修改提交了，好，我们提交一下。</p>
-<p>4、提交代码到本地</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;提交&quot;</span><br></pre></td></tr></table></figure>
-<p>5、推送代码到远程仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
-<p>6、合并分支</p>
-<p>首页要切换到你想要合并到的分支，例如，我想把develop合并到master，那么首页切换到master<br>然后，命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge develop</span><br></pre></td></tr></table></figure>
-<p>然后push就好了</p>
-<p>更多的文档可以看<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">廖雪峰前辈这里</a></p>
-
-          
+          其实，刚开始用的版本控制器是SVN，之后不知不觉投奔的git，git给我的感觉是很酷（别打了，我不装逼了(^__^) ）。
+好的，说一下git，现在除了公司的项目用git管理以为，平时自己写的项目也用，比如GitHub、开源中国的码云（不是马云），不过说一下， GitHub私有项目是收费，平时开源的
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/08/常用git命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1127,20 +1073,16 @@
       
         
           
-            <p><strong>1.Android中调用手机邮箱 发送邮件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = new Intent(android.content.Intent.ACTION_SEND);</span><br><span class="line">intent.putExtra(android.content.Intent.EXTRA_EMAIL,</span><br><span class="line">// 收件人</span><br><span class="line">new String[] &#123; &quot;840179939@qq.com&quot; &#125;); </span><br><span class="line">// 主题</span><br><span class="line">intent.putExtra(android.content.Intent.EXTRA_SUBJECT, &quot;意见反馈&quot;);</span><br><span class="line">// 正文</span><br><span class="line">intent.putExtra(android.content.Intent.EXTRA_TEXT, emailcontent); </span><br><span class="line">intent.setType(&quot;plain/text&quot;);</span><br><span class="line">startActivityForResult(intent, SENDBACK);</span><br></pre></td></tr></table></figure>
-<p><strong>2.Android中调用手机短信 发送短信</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Uri uri = Uri.parse(&quot;smsto:&quot; + data.getFriendsPhone());</span><br><span class="line">Intent sendIntent = new Intent(Intent.ACTION_VIEW, uri);</span><br><span class="line">sendIntent.putExtra(&quot;sms_body&quot;, &quot;发送短信内容&quot;);</span><br><span class="line">startActivity(sendIntent);</span><br></pre></td></tr></table></figure>
-<p><strong>3.Android中调用手机电话</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = new Intent();  </span><br><span class="line">intent.setAction(Intent.ACTION_CALL);  </span><br><span class="line">intent.setData(Uri.parse(&quot;tel:&quot;+&quot;电话号码&quot;));  </span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
-<p>当然，以上调用 <strong>发送短信</strong> 和 <strong>打电话</strong> 都是要获取权限的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--发送消息--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.SEND_SMS&quot;/&gt;</span><br><span class="line">&lt;!--拨打电话--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>扩展</strong><br>印象中有公司的app（好像是滴滴…）发送验证码的时候可以直接获取短信的内容，放到输入框，当然需要更多的权限。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--  阅读消息--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.READ_SMS&quot;/&gt;</span><br><span class="line">&lt;!--  写入消息--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.WRITE_SMS&quot; /&gt;</span><br><span class="line">&lt;!-- 接收消息 --&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.RECEIVE_SMS&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>后面会我们研究一下Android6.0以上的权限管理，欢迎互相交流学习。</p>
-<p>以上内容是之前整理的笔记，现整理放在blog上，方便以后管理。</p>
-
-          
+          1.Android中调用手机邮箱 发送邮件
+12345678910Intent intent = new Intent(android.content.Intent.ACTION_SEND);intent.putExtra(android.content.Intent.EXTRA_EMAIL,// 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/11/08/Android中调用手机邮箱-手机短信-手机电话/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1258,9 +1200,15 @@
       
         
           
-            <p>带有缺口的边框<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;layer-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</span><br><span class="line">    &lt;!-- 连框颜色值 --&gt;</span><br><span class="line">    &lt;item&gt;</span><br><span class="line">        &lt;shape&gt;</span><br><span class="line">            &lt;solid android:color=&quot;#3ad8fa&quot; /&gt;</span><br><span class="line">        &lt;/shape&gt;</span><br><span class="line">    &lt;/item&gt;</span><br><span class="line">    &lt;!-- 主体背景颜色值 --&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:bottom=&quot;5dp&quot;</span><br><span class="line">        android:left=&quot;5dp&quot;</span><br><span class="line">        android:right=&quot;5dp&quot;&gt;</span><br><span class="line">        &lt;!--边框里面背景颜色 白色--&gt;</span><br><span class="line">        &lt;shape&gt;</span><br><span class="line">            &lt;solid android:color=&quot;#fff&quot; /&gt;</span><br><span class="line">        &lt;/shape&gt;</span><br><span class="line">    &lt;/item&gt;</span><br><span class="line"></span><br><span class="line">&lt;/layer-list&gt;</span><br></pre></td></tr></table></figure></p>
-
-          
+          带有缺口的边框12345678910111213141516171819&lt;layer-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;    &lt;!-- 连框颜色值 --&gt;   
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/09/06/多样的shape-layer-list/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1378,34 +1326,25 @@
       
         
           
-            <ul>
-<li><strong>corners–圆角</strong></li>
-<li><strong>padding–内边距</strong></li>
-<li><strong>size（height、width）–设置宽高</strong></li>
-<li><strong>stroke–描边</strong></li>
-<li><strong>gradient–渐变</strong></li>
-<li><strong>solid–填充</strong></li>
-</ul>
-<hr>
-<p>分别介绍</p>
-<p><strong><em>1.corners–圆角</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;corners</span><br><span class="line">    android:radius=&quot;10dp&quot;</span><br><span class="line">    android:bottomLeftRadius=&quot;10dp&quot;</span><br><span class="line">    android:bottomRightRadius=&quot;10dp&quot;</span><br><span class="line">    android:topLeftRadius=&quot;10dp&quot;</span><br><span class="line">    android:topRightRadius=&quot;10dp&quot;</span><br><span class="line">    &gt;&lt;/corners&gt;</span><br></pre></td></tr></table></figure></p>
-<p>设置radius=”10dp”等同于：上下左右分别设置为10dp,反之同理</p>
-<p><strong><em>2.padding–内边距</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;padding</span><br><span class="line">    android:left=&quot;1dp&quot;</span><br><span class="line">    android:top=&quot;1dp&quot;</span><br><span class="line">    android:right=&quot;1dp&quot;</span><br><span class="line">    android:bottom=&quot;1dp&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这个很好理解，不做解释</p>
-<p><strong><em>3.size（height、width）–设置宽高</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;size android:height=&quot;10dp&quot; /&gt;</span><br><span class="line">&lt;size android:width=&quot;100dp&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p><strong><em>4.stroke–描边</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;stroke</span><br><span class="line">    android:color=&quot;@color/red_200&quot;</span><br><span class="line">    android:width=&quot;2dp&quot;</span><br><span class="line">    android:dashWidth=&quot;1dp&quot;</span><br><span class="line">    android:dashGap=&quot;1dp&quot;</span><br><span class="line">    &gt;&lt;/stroke&gt;</span><br></pre></td></tr></table></figure>
-<p>width：描边的宽度；color：描边的暗色；dashGap：默认0dp为实线，不为0时为虚线，值代表虚点之间的距离；dashWidth：为虚线时，控制虚点的宽度<br><strong><em>5.gradient–渐变</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;gradient</span><br><span class="line">       android:centerColor=&quot;#ff00ff00&quot;</span><br><span class="line">       android:endColor=&quot;#ff0000ff&quot;</span><br><span class="line">       android:startColor=&quot;#ffff0000&quot;</span><br><span class="line">       android:gradientRadius=&quot;100dp&quot;</span><br><span class="line">       android:type=&quot;radial&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>startColor设置起始颜色，endColor结束颜色，centerColor中间色<br>当type为radial表示为以gradientRadius半径为中心向周围渐变，如图：</p>
-<p><img src="http://img.blog.csdn.net/20160509145611412" alt="这里写图片描述"><br>当type为linear时gradientRadius无效，结果为：</p>
-<p><img src="http://img.blog.csdn.net/20160509145800155" alt="这里写图片描述"></p>
-<p><strong><em>6.solid–填充</em></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;solid android:color=&quot;@android:color/white&quot;&gt;&lt;/solid&gt;</span><br></pre></td></tr></table></figure>
-<p>OK,欢迎指教。<br><a href="https://github.com/cywmm" target="_blank" rel="noopener">个人github</a></p>
-
           
+corners–圆角
+padding–内边距
+size（height、width）–设置宽高
+stroke–描边
+gradient–渐变
+solid–填充
+
+
+分别介绍
+1.corners–圆角1234567&lt;corners    android:radius=&quot;10dp&quot
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/05/09/Android中使用shape/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1523,8 +1462,15 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">	public static void SetEditTextHintFontSize(Context context,EditText editText,int size,int contentID)&#123;</span><br><span class="line">		String content=context.getString(contentID);</span><br><span class="line">		// 新建一个可以添加属性的文本对象</span><br><span class="line">		SpannableString ss = new SpannableString(content);</span><br><span class="line">		// 新建一个属性对象,设置文字的大小</span><br><span class="line">		AbsoluteSizeSpan ass = new AbsoluteSizeSpan(size, true);</span><br><span class="line">		// 附加属性到文本</span><br><span class="line">		ss.setSpan(ass, 0, ss.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">		// 设置hint</span><br><span class="line">		editText.setHint(new SpannedString(ss)); // 一定要进行转换,否则属性会消失</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-          
+          123456789101112//	public static void SetEditTextHintFontSize(Context context,EditText editText,int size,int contentID)&#123;		String content=context.g
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/11/10/设置EditText的hint字体大小/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
