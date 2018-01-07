@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="明">
-<meta property="og:url" content="http://yoursite.com/archives/2016/05/index.html">
+<meta name="description" content="问题: 项目中使用zip4j解压，监听进度的时候出现了解压不全的情况。  环境 zip4j 1.3.2 解压文件.zip  核心代码 解压代码 12345678910111213try &amp;#123;        ZipFile zipFile = new ZipFile(file);        if (zipFile.isEncrypted()) &amp;#123;            zipF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 使用zip4j 解压进度问题">
+<meta property="og:url" content="http://yoursite.com/2018/01/07/Android-使用zip4j-解压进度问题/index.html">
 <meta property="og:site_name" content="明">
+<meta property="og:description" content="问题: 项目中使用zip4j解压，监听进度的时候出现了解压不全的情况。  环境 zip4j 1.3.2 解压文件.zip  核心代码 解压代码 12345678910111213try &amp;#123;        ZipFile zipFile = new ZipFile(file);        if (zipFile.isEncrypted()) &amp;#123;            zipF">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-07T15:27:47.464Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="明">
+<meta name="twitter:title" content="Android 使用zip4j 解压进度问题">
+<meta name="twitter:description" content="问题: 项目中使用zip4j解压，监听进度的时候出现了解压不全的情况。  环境 zip4j 1.3.2 解压文件.zip  核心代码 解压代码 12345678910111213try &amp;#123;        ZipFile zipFile = new ZipFile(file);        if (zipFile.isEncrypted()) &amp;#123;            zipF">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2016/05/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/07/Android-使用zip4j-解压进度问题/"/>
 
 
 
 
 
-  <title>归档 | 明</title>
+  <title>Android 使用zip4j 解压进度问题 | 明</title>
   
 
 
@@ -140,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -248,74 +252,189 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 12 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2016">2016</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/07/Android-使用zip4j-解压进度问题/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wangming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/6027400?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="明">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/05/09/Android中使用shape/" itemprop="url">
-              
-                <span itemprop="name">Android中使用shape</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Android 使用zip4j 解压进度问题</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-05-09T15:06:00+08:00"
-              content="2016-05-09" >
-          05-09
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-07T19:10:11+08:00">
+                2018-01-07
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h5 id="问题"><a href="#问题" class="headerlink" title="问题:"></a>问题:</h5><ul>
+<li>项目中使用zip4j解压，监听进度的时候出现了解压不全的情况。</li>
+</ul>
+<h5 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h5><ul>
+<li><code>zip4j 1.3.2</code></li>
+<li><code>解压文件.zip</code></li>
+</ul>
+<h5 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h5><ol>
+<li><p>解压代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">        ZipFile zipFile = new ZipFile(file);</span><br><span class="line"></span><br><span class="line">        if (zipFile.isEncrypted()) &#123;</span><br><span class="line">            zipFile.setPassword(&quot;647UQ4&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        ProgressMonitor progressMonitor = zipFile.getProgressMonitor();</span><br><span class="line">        unZipThreadProgress.start();</span><br><span class="line">        zipFile.setRunInThread(true);</span><br><span class="line">        zipFile.extractAll(file1.getAbsolutePath());</span><br><span class="line">    &#125; catch (ZipException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解压更新进度代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">private boolean isRunning = true;</span><br><span class="line">    Thread unZipThreadProgress = new Thread() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            super.run();</span><br><span class="line">            while (isRunning) &#123;</span><br><span class="line">                int result = progressMonitor.getResult();</span><br><span class="line">                int state = progressMonitor.getState();</span><br><span class="line">                int unProgress = progressMonitor.getPercentDone();</span><br><span class="line"></span><br><span class="line">                if (result == ProgressMonitor.RESULT_SUCCESS &amp;&amp; state == ProgressMonitor.STATE_READY) &#123;</span><br><span class="line">                  //解压成功后处理</span><br><span class="line">                &#125; else if (result == ProgressMonitor.RESULT_CANCELLED || result == ProgressMonitor.RESULT_ERROR) &#123;</span><br><span class="line">                  isRunning = false;</span><br><span class="line">                  //解压失败后处理</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                  isRunning = false;</span><br><span class="line">                  //更新解压进度</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>打印日志发现<code>progressMonitor.getResult()</code>和<code>progressMonitor.getState()</code>的值一直为0、1；在解压过程中没有改变过，所有就有问题了，上面的判断没有任何作用。所以这两个值没有利用价值，也就是为什么会解压不全，因为还没有解压完就开始操作文件了，因而文件肯定就找不到。</p>
+<p>#####优化代码，简单点（又不是个演员）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Thread unZipThreadProgress = new Thread() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            super.run();</span><br><span class="line">            while (isRunning) &#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    Thread.sleep(5000);</span><br><span class="line">                &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                int unProgress = progressMonitor.getPercentDone();</span><br><span class="line">                Log.d(TAG, &quot;run: &quot; + unProgress);</span><br><span class="line">                if (unProgress &gt; 0) &#123;</span><br><span class="line">                    unzipProgress.setProgress(unProgress);</span><br><span class="line">                &#125;</span><br><span class="line">                if (unProgress &gt;= 100) &#123;</span><br><span class="line">                    isRunning = false;</span><br><span class="line">                    Log.d(TAG, &quot;run: 解压完成&quot; + unProgress);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<p>这段代码其实也有问题，反复测试之后，发现<code>progressMonitor</code>在解压完成的时候<code>progressMonitor.getPercentDone();</code>的值会变为0。后头再看一下上面的代码，就会发现<code>Thread.sleep(5000)</code>到底靠不靠谱。<br>在程序还在sleep的时候解压其实已经结束了，故<code>progressMonitor.getPercentDone()</code>已经为0了，这个时候<code>unProgress &gt;= 100</code>起不起作用就是个问题了，所以加<code>Thread.sleep(5000)</code>也不行，这个网上很多的博客都有这个问题。</p>
+<p>好，问题找到，为啥要sleep呢？说白了就是较少更新UI的次数对不对，那么就没有其他的方法了吗？当然有，这里可以考虑设定节点去更新UI，比如：设定25、30、60、75、90、99、100为节点，这样就可以大大减少更新UI的次数，最终解决问题。</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat_play_pic.jpg" alt="wangming 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/02/ming/" rel="next" title="2018年开篇">
+                <i class="fa fa-chevron-left"></i> 2018年开篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -323,6 +442,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -343,8 +466,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -406,6 +538,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#问题"><span class="nav-text">问题:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#环境"><span class="nav-text">环境</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#核心代码"><span class="nav-text">核心代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -566,6 +714,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
