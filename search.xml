@@ -53,7 +53,7 @@
   <entry>
     <title><![CDATA[常用的adb命令行]]></title>
     <url>%2F2015%2F11%2F08%2F%E5%B8%B8%E7%94%A8%E7%9A%84adb%E5%91%BD%E4%BB%A4%E8%A1%8C%2F</url>
-    <content type="text"><![CDATA[连接设备 adb connect 192.168.*.* 断开设备 adb disconnect 获取权限 adb root 安装APK adb install -r *apk 卸载APK adb uninstall 包名 导出文件 adb pull 文件 导入文件到手机 adb push [文件] [导入的目标地址] 获取手机sdk信息 adb shell getprop ro.build.version.sdk 获取手机系统版本 adb shell getprop ro.build.version.release 启动应用 adb shell am start com.datuhongan.lancher/.*.MainActivity 退出应用 adb shell am force-stop 包名 启动adb服务 adb start-server 停止adb服务 adb kill-server 杀死一个进程 adb shell kill [pid] 设置文件的权限 adb shell chmod 777 跑monkey adb shell monkey -v -p your.package.name 500 查看设备IP地址 adb shell netcfg 获取设备的MAC地址 adb shell cat /sys/class/net/eth0/address 查看应用信息 adb shell dumpsys package [PackageName] 操作指定设备 adb -s emulator-5554（ip:5555）]]></content>
+    <content type="text"><![CDATA[连接设备 adb connect 192.168.*.* 断开设备 adb disconnect 获取权限 adb root 安装APK adb install -r *apk 卸载APK adb uninstall 包名 导出文件 adb pull 文件 导入文件到手机 adb push [文件] [导入的目标地址] 获取手机sdk信息 adb shell getprop ro.build.version.sdk 获取手机系统版本 adb shell getprop ro.build.version.release 启动应用 adb shell am start 包名/.*.MainActivity 退出应用 adb shell am force-stop 包名 启动adb服务 adb start-server 停止adb服务 adb kill-server 杀死一个进程 adb shell kill [pid] 设置文件的权限 adb shell chmod 777 跑monkey adb shell monkey -v -p your.package.name 500 查看设备IP地址 adb shell netcfg 获取设备的MAC地址 adb shell cat /sys/class/net/eth0/address 查看应用信息 adb shell dumpsys package [PackageName] 操作指定设备 adb -s emulator-5554（ip:5555）]]></content>
   </entry>
   <entry>
     <title><![CDATA[设置EditText的hint字体大小]]></title>
