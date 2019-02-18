@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/ming.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="实现选中物品飘落到购物车效果 效果图  实现思路，确定动画运行的几个关键点 开始坐标  startCoordinate 终点坐标  endCoordinate 父布局范围（实际上可忽略） 飘落的物品   View 动画时间   代码具体实现初始化动画 12345678910111213141516171819202122232425262728293031323334353637383940414">
+<meta name="description" content="实现选中物品飘落到购物车效果 实现思路，确定动画运行的几个关键点 开始坐标  startCoordinate 终点坐标  endCoordinate 父布局范围（实际上可忽略） 飘落的物品   View 动画时间   代码具体实现初始化动画 1234567891011121314151617181920212223242526272829303132333435363738394041424344">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现选中物品飘落到购物车效果">
 <meta property="og:url" content="http://yoursite.com/2018/05/26/实现选中物品飘落到购物车效果/index.html">
 <meta property="og:site_name" content="明">
-<meta property="og:description" content="实现选中物品飘落到购物车效果 效果图  实现思路，确定动画运行的几个关键点 开始坐标  startCoordinate 终点坐标  endCoordinate 父布局范围（实际上可忽略） 飘落的物品   View 动画时间   代码具体实现初始化动画 12345678910111213141516171819202122232425262728293031323334353637383940414">
+<meta property="og:description" content="实现选中物品飘落到购物车效果 实现思路，确定动画运行的几个关键点 开始坐标  startCoordinate 终点坐标  endCoordinate 父布局范围（实际上可忽略） 飘落的物品   View 动画时间   代码具体实现初始化动画 1234567891011121314151617181920212223242526272829303132333435363738394041424344">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-26T07:32:29.063Z">
+<meta property="og:updated_time" content="2019-02-18T14:49:37.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现选中物品飘落到购物车效果">
-<meta name="twitter:description" content="实现选中物品飘落到购物车效果 效果图  实现思路，确定动画运行的几个关键点 开始坐标  startCoordinate 终点坐标  endCoordinate 父布局范围（实际上可忽略） 飘落的物品   View 动画时间   代码具体实现初始化动画 12345678910111213141516171819202122232425262728293031323334353637383940414">
+<meta name="twitter:description" content="实现选中物品飘落到购物车效果 实现思路，确定动画运行的几个关键点 开始坐标  startCoordinate 终点坐标  endCoordinate 父布局范围（实际上可忽略） 飘落的物品   View 动画时间   代码具体实现初始化动画 1234567891011121314151617181920212223242526272829303132333435363738394041424344">
 
 
 
@@ -119,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/26/实现选中物品飘落到购物车效果/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/26/实现选中物品飘落到购物车效果/">
 
 
 
@@ -153,7 +153,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">明</span>
         <span class="logo-line-after"><i></i></span>
@@ -183,7 +183,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -193,7 +193,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -203,7 +203,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -216,7 +216,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -237,9 +237,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -280,7 +278,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangming">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/6027400?s=460&v=4">
     </span>
 
@@ -305,7 +303,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-26T12:37:16+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-26T12:37:00+08:00">
                 2018-05-26
               </time>
             
@@ -327,7 +325,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
             </span>
           
 
@@ -349,8 +347,6 @@
 
       
         <h3 id="实现选中物品飘落到购物车效果"><a href="#实现选中物品飘落到购物车效果" class="headerlink" title="实现选中物品飘落到购物车效果"></a>实现选中物品飘落到购物车效果</h3><ol>
-<li><h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><iframe height="100" width="100" src="https://github.com/cywmm/cywmm.github.io/blob/master/images/QQ20180526-125728.gif">
-</iframe></li>
 <li><h4 id="实现思路，确定动画运行的几个关键点"><a href="#实现思路，确定动画运行的几个关键点" class="headerlink" title="实现思路，确定动画运行的几个关键点"></a>实现思路，确定动画运行的几个关键点</h4><ul>
 <li>开始坐标  <code>startCoordinate</code></li>
 <li>终点坐标  <code>endCoordinate</code></li>
@@ -363,7 +359,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> parent    父布局</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> startView 起始点view（中心点）</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> endView   终点view（中心点）</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@param</span> moveView  漂浮view</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> ValueAnimator <span class="title">initBesselCurve</span><span class="params">(ViewGroup parent, View startView, View endView, View moveView)</span></span>&#123;</span><br><span class="line">            <span class="keyword">int</span>[] startCoordinate = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">int</span>[] parentCoordinate = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">int</span>[] endCoordinate = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">            <span class="comment">//分别获取被点击View、父布局、购物车在屏幕上的坐标xy。</span></span><br><span class="line">            startView.getLocationInWindow(startCoordinate);</span><br><span class="line">            parent.getLocationInWindow(parentCoordinate);</span><br><span class="line">            endView.getLocationInWindow(endCoordinate);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> moveViewWidth = moveView.getLayoutParams().width;</span><br><span class="line">            <span class="keyword">int</span> moveViewHeight = moveView.getLayoutParams().height;</span><br><span class="line">            <span class="keyword">int</span> startX = startCoordinate[<span class="number">0</span>] - parentCoordinate[<span class="number">0</span>] + startView.getWidth() / <span class="number">2</span> - moveViewWidth / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> startY = startCoordinate[<span class="number">1</span>] - parentCoordinate[<span class="number">1</span>] + startView.getHeight() / <span class="number">2</span> - moveViewHeight / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//设置img在父布局中的坐标位置</span></span><br><span class="line">            moveView.setX(startX);</span><br><span class="line">            moveView.setY(startY);</span><br><span class="line">            parent.addView(moveView);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//利用 二次贝塞尔曲线 需首先计算出 MoveImageView的2个数据点和一个控制点</span></span><br><span class="line">            PointF startP = <span class="keyword">new</span> PointF();</span><br><span class="line">            PointF endP = <span class="keyword">new</span> PointF();</span><br><span class="line">            PointF controlP = <span class="keyword">new</span> PointF();</span><br><span class="line">            <span class="comment">//开始的数据点坐标就是 addV的坐标</span></span><br><span class="line">            startP.x = startX;</span><br><span class="line">            startP.y = startY;</span><br><span class="line">            <span class="comment">//结束的数据点坐标就是 step的坐标</span></span><br><span class="line">            endP.x = endCoordinate[<span class="number">0</span>] - parentCoordinate[<span class="number">0</span>] + moveViewWidth / <span class="number">2</span>;</span><br><span class="line">            endP.y = endCoordinate[<span class="number">1</span>] - parentCoordinate[<span class="number">1</span>];</span><br><span class="line">            <span class="comment">//控制点坐标 x等于 购物车x；y等于 addV的y</span></span><br><span class="line">            controlP.x = endP.x;</span><br><span class="line">            controlP.y = startP.y;</span><br><span class="line"></span><br><span class="line">            BesselEvaluator evaluator = <span class="keyword">new</span> BesselEvaluator(controlP);</span><br><span class="line">            ValueAnimator animator = ObjectAnimator.ofObject(</span><br><span class="line">                    evaluator, startP, endP);</span><br><span class="line"></span><br><span class="line">            animator.addUpdateListener(animation -&gt; &#123;</span><br><span class="line">                PointF pointF = (PointF) animation.getAnimatedValue();</span><br><span class="line">                moveView.setX(pointF.x);</span><br><span class="line">                moveView.setY(pointF.y);</span><br><span class="line">            &#125;);</span><br><span class="line">            animator.setDuration(duration);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> animator;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<ol>
+<ol start="3">
 <li><h4 id="贝塞尔曲线控制-BesselEvaluator"><a href="#贝塞尔曲线控制-BesselEvaluator" class="headerlink" title="贝塞尔曲线控制  BesselEvaluator"></a>贝塞尔曲线控制  <code>BesselEvaluator</code></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 自定义贝塞尔估值器</span></span><br><span class="line"><span class="comment"> * Created by wangming on 2018/5/10.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BesselEvaluator</span> <span class="keyword">implements</span> <span class="title">TypeEvaluator</span>&lt;<span class="title">PointF</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 每个估值器对应一个属性动画，每个属性动画仅对应唯一一个控制点</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    PointF control;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 估值器返回值</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    PointF mPointF = <span class="keyword">new</span> PointF();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BesselEvaluator</span><span class="params">(PointF control)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.control = control;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> PointF <span class="title">evaluate</span><span class="params">(<span class="keyword">float</span> fraction, PointF startValue, PointF endValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getBezierPoint(startValue, endValue, control, fraction);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 二次贝塞尔曲线公式</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> start   开始的数据点</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> end     结束的数据点</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> control 控制点</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> t       float 0-1</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 不同t对应的PointF</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> PointF <span class="title">getBezierPoint</span><span class="params">(PointF start, PointF end, PointF control, <span class="keyword">float</span> t)</span> </span>&#123;</span><br><span class="line">        mPointF.x = (<span class="number">1</span> - t) * (<span class="number">1</span> - t) * start.x + <span class="number">2</span> * t * (<span class="number">1</span> - t) * control.x + t * t * end.x;</span><br><span class="line">        mPointF.y = (<span class="number">1</span> - t) * (<span class="number">1</span> - t) * start.y + <span class="number">2</span> * t * (<span class="number">1</span> - t) * control.y + t * t * end.y;</span><br><span class="line">        <span class="keyword">return</span> mPointF;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>实现中注意坐标点位置，物品自身的宽和高要考虑进去。</p>
@@ -389,7 +385,7 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechat_play_pic.jpg" alt="wangming 微信支付"/>
+        <img id="wechat_qr" src="/images/wechat_play_pic.jpg" alt="wangming 微信支付">
         <p>微信支付</p>
       </div>
     
@@ -491,9 +487,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="https://avatars3.githubusercontent.com/u/6027400?s=460&v=4"
-                alt="wangming" />
+              <img class="site-author-image" itemprop="image" src="https://avatars3.githubusercontent.com/u/6027400?s=460&v=4" alt="wangming">
             
               <p class="site-author-name" itemprop="name">wangming</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -577,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现选中物品飘落到购物车效果"><span class="nav-text">实现选中物品飘落到购物车效果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#效果图"><span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现思路，确定动画运行的几个关键点"><span class="nav-text">实现思路，确定动画运行的几个关键点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码具体实现"><span class="nav-text">代码具体实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#贝塞尔曲线控制-BesselEvaluator"><span class="nav-text">贝塞尔曲线控制  BesselEvaluator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现选中物品飘落到购物车效果"><span class="nav-text">实现选中物品飘落到购物车效果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现思路，确定动画运行的几个关键点"><span class="nav-text">实现思路，确定动画运行的几个关键点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码具体实现"><span class="nav-text">代码具体实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#贝塞尔曲线控制-BesselEvaluator"><span class="nav-text">贝塞尔曲线控制  BesselEvaluator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -597,7 +591,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
