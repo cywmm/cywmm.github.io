@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1.Android中调用手机邮箱 发送邮件 12345678910Intent intent = new Intent(android.content.Intent.ACTION_SEND);intent.putExtra(android.content.Intent.EXTRA_EMAIL,// 收件人new String[] &amp;#123; &amp;quot;840179939@qq.com&amp;quot">
+<meta name="description" content="Slqite 数据库升级思路一.删除表字段 先新建一个临时表，确认想要的字段(id、name、age)（假设原表（person）的字段为：id、name、age、sex） 1234CREATE TABLE person_temp (id        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,name   TEXT    DEFAULT NULL,age">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android中调用手机邮箱 手机短信 手机电话">
-<meta property="og:url" content="http://yoursite.com/2016/11/08/Android中调用手机邮箱-手机短信-手机电话/index.html">
+<meta property="og:title" content="关于sqlite数据库升级总结">
+<meta property="og:url" content="http://yoursite.com/2020/02/05/关于sqlite数据库升级总结/index.html">
 <meta property="og:site_name" content="明">
-<meta property="og:description" content="1.Android中调用手机邮箱 发送邮件 12345678910Intent intent = new Intent(android.content.Intent.ACTION_SEND);intent.putExtra(android.content.Intent.EXTRA_EMAIL,// 收件人new String[] &amp;#123; &amp;quot;840179939@qq.com&amp;quot">
+<meta property="og:description" content="Slqite 数据库升级思路一.删除表字段 先新建一个临时表，确认想要的字段(id、name、age)（假设原表（person）的字段为：id、name、age、sex） 1234CREATE TABLE person_temp (id        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,name   TEXT    DEFAULT NULL,age">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-03T09:02:51.000Z">
+<meta property="og:updated_time" content="2020-03-05T09:51:57.232Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android中调用手机邮箱 手机短信 手机电话">
-<meta name="twitter:description" content="1.Android中调用手机邮箱 发送邮件 12345678910Intent intent = new Intent(android.content.Intent.ACTION_SEND);intent.putExtra(android.content.Intent.EXTRA_EMAIL,// 收件人new String[] &amp;#123; &amp;quot;840179939@qq.com&amp;quot">
+<meta name="twitter:title" content="关于sqlite数据库升级总结">
+<meta name="twitter:description" content="Slqite 数据库升级思路一.删除表字段 先新建一个临时表，确认想要的字段(id、name、age)（假设原表（person）的字段为：id、name、age、sex） 1234CREATE TABLE person_temp (id        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,name   TEXT    DEFAULT NULL,age">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/08/Android中调用手机邮箱-手机短信-手机电话/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/05/关于sqlite数据库升级总结/">
 
 
 
 
 
-  <title>Android中调用手机邮箱 手机短信 手机电话 | 明</title>
+  <title>关于sqlite数据库升级总结 | 明</title>
   
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/08/Android中调用手机邮箱-手机短信-手机电话/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/05/关于sqlite数据库升级总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangming">
@@ -291,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Android中调用手机邮箱 手机短信 手机电话</h1>
+          <h1 class="post-title" itemprop="name headline">关于sqlite数据库升级总结</h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-08T13:23:20+08:00">
-                2016-11-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-05T20:49:00+08:00">
+                2020-02-05
               </time>
             
 
@@ -346,18 +346,62 @@
       
 
       
-        <p><strong>1.Android中调用手机邮箱 发送邮件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = new Intent(android.content.Intent.ACTION_SEND);</span><br><span class="line">intent.putExtra(android.content.Intent.EXTRA_EMAIL,</span><br><span class="line">// 收件人</span><br><span class="line">new String[] &#123; &quot;840179939@qq.com&quot; &#125;); </span><br><span class="line">// 主题</span><br><span class="line">intent.putExtra(android.content.Intent.EXTRA_SUBJECT, &quot;意见反馈&quot;);</span><br><span class="line">// 正文</span><br><span class="line">intent.putExtra(android.content.Intent.EXTRA_TEXT, emailcontent); </span><br><span class="line">intent.setType(&quot;plain/text&quot;);</span><br><span class="line">startActivityForResult(intent, SENDBACK);</span><br></pre></td></tr></table></figure>
-<p><strong>2.Android中调用手机短信 发送短信</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Uri uri = Uri.parse(&quot;smsto:&quot; + data.getFriendsPhone());</span><br><span class="line">Intent sendIntent = new Intent(Intent.ACTION_VIEW, uri);</span><br><span class="line">sendIntent.putExtra(&quot;sms_body&quot;, &quot;发送短信内容&quot;);</span><br><span class="line">startActivity(sendIntent);</span><br></pre></td></tr></table></figure>
-<p><strong>3.Android中调用手机电话</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = new Intent();  </span><br><span class="line">intent.setAction(Intent.ACTION_CALL);  </span><br><span class="line">intent.setData(Uri.parse(&quot;tel:&quot;+&quot;电话号码&quot;));  </span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
-<p>当然，以上调用 <strong>发送短信</strong> 和 <strong>打电话</strong> 都是要获取权限的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--发送消息--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.SEND_SMS&quot;/&gt;</span><br><span class="line">&lt;!--拨打电话--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>扩展</strong><br>印象中有公司的app（好像是滴滴…）发送验证码的时候可以直接获取短信的内容，放到输入框，当然需要更多的权限。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--  阅读消息--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.READ_SMS&quot;/&gt;</span><br><span class="line">&lt;!--  写入消息--&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.WRITE_SMS&quot; /&gt;</span><br><span class="line">&lt;!-- 接收消息 --&gt;</span><br><span class="line">&lt;uses-permission android:name=&quot;android.permission.RECEIVE_SMS&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>后面会我们研究一下Android6.0以上的权限管理，欢迎互相交流学习。</p>
-<p>以上内容是之前整理的笔记，现整理放在blog上，方便以后管理。</p>
+        <h4 id="Slqite-数据库升级思路"><a href="#Slqite-数据库升级思路" class="headerlink" title="Slqite 数据库升级思路"></a>Slqite 数据库升级思路</h4><h5 id="一-删除表字段"><a href="#一-删除表字段" class="headerlink" title="一.删除表字段"></a>一.删除表字段</h5><ul>
+<li><p>先新建一个临时表，确认想要的字段(id、name、age)（假设原表（person）的字段为：id、name、age、sex）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE person_temp (</span><br><span class="line">id        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,</span><br><span class="line">name   TEXT    DEFAULT NULL,</span><br><span class="line">age   TEXT    DEFAULT NULL</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把原有的表数据复制到person_temp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO person_temp SELECT id,name,age FROM person;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除原来的表person</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE person;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建新表person</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE person (</span><br><span class="line">id        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,</span><br><span class="line">name   TEXT    DEFAULT NULL,</span><br><span class="line">age   TEXT    DEFAULT NULL)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把临时表的数据复制到person</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO person SELECT id,name,age FROM person_temp;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除临时表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE person_temp;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="二-另外Android-ROOM-数据库框架迁移升级问题"><a href="#二-另外Android-ROOM-数据库框架迁移升级问题" class="headerlink" title="二.另外Android ROOM 数据库框架迁移升级问题"></a>二.另外Android ROOM 数据库框架迁移升级问题</h5><blockquote>
+<p>问题：使用room框架直接读取原有数据库出现无数据现象，以及数据库表格式也不支持。</p>
+</blockquote>
+<ul>
+<li>利用room框架新建数据库以及表</li>
+<li>老数据库数据获取批量插入到新数据库</li>
+</ul>
+<h5 id="三-另外一些常用的数据库命令"><a href="#三-另外一些常用的数据库命令" class="headerlink" title="三.另外一些常用的数据库命令"></a>三.另外一些常用的数据库命令</h5><ul>
+<li><p>创建表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE person (</span><br><span class="line">id        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,</span><br><span class="line">name   TEXT    DEFAULT NULL,</span><br><span class="line">age   TEXT    DEFAULT NULL)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE person;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>复制表数据(指定需要复制的字段 id、name、age)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO person_temp SELECT id,name,age FROM person;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询表所有数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select *from 表名;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查询表数据条目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from 表名;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根据字段查询数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select column1,column2 from 表名;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>where条件查询 (查询id=1的数据)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select from 表名 where id=&apos;1&apos;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>like语句模糊查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select *from 表名 where name like &apos;一%&apos;;//查询所有name 首字为&quot;一&quot;的所有列数据</span><br><span class="line">select name from 表名 where name like &apos;一%&apos;;//查询name字段，name首字为&quot;一&quot;的数据</span><br><span class="line">select name from 表名 where name like &apos;一%%二&apos;;//查询name字段，name首字为&quot;一&quot;结尾为&quot;二&quot;的数据</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>limit限制查询数量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select *from 表名 limit 4;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -406,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/06/多样的shape-layer-list/" rel="next" title="多样的shape(layer-list)">
-                <i class="fa fa-chevron-left"></i> 多样的shape(layer-list)
+              <a href="/2018/05/26/实现选中物品飘落到购物车效果/" rel="next" title="实现选中物品飘落到购物车效果">
+                <i class="fa fa-chevron-left"></i> 实现选中物品飘落到购物车效果
               </a>
             
           </div>
@@ -415,10 +459,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/08/常用git命令/" rel="prev" title="常用git命令">
-                常用git命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -470,8 +510,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -549,6 +598,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Slqite-数据库升级思路"><span class="nav-text">Slqite 数据库升级思路</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一-删除表字段"><span class="nav-text">一.删除表字段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二-另外Android-ROOM-数据库框架迁移升级问题"><span class="nav-text">二.另外Android ROOM 数据库框架迁移升级问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三-另外一些常用的数据库命令"><span class="nav-text">三.另外一些常用的数据库命令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
